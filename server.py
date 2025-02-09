@@ -44,7 +44,7 @@ server.add_app_metadata(
     name="App Dangerousness Classifier",
     author="UMass Rescue",
     version="0.1.0",
-    info=load_file_as_string("README_onnx.md"),
+    info=load_file_as_string("README.md"),
 )
 
 # Load tokenizer and model

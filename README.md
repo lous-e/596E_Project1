@@ -39,9 +39,11 @@ python -m server
 ```
 
 ### Command line interface
-
-Coming Soon!
-
+To return the input string and model prediction in an `output.json` file
+```bash
+# text_to_classify is the input string, such as "this app is amazing"
+python client.py --input_text [text_to_classify]
+```
 <!-- The command line interface can be used to test the model. Run the following command to test the model:
 
 ```bash

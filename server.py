@@ -1,6 +1,6 @@
-import torch
-from config import *  # Ensure this contains your model parameters
 from typing import TypedDict
+import torch
+from config import *
 from transformers import BertTokenizer
 from flask_ml.flask_ml_server import MLServer, load_file_as_string
 from flask_ml.flask_ml_server.models import (
@@ -17,7 +17,7 @@ from flask_ml.flask_ml_server.models import (
 )
 
 ## ORIGINAL
-# from App_dangerrousness import BERTClassifier
+# from App_dangerrousness import BERTClassifiers
 
 ## ONNX
 import onnxruntime as ort
@@ -49,9 +49,10 @@ server.add_app_metadata(
 
 # Load tokenizer and model
 tokenizer = BertTokenizer.from_pretrained(bert_model_name)
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 ## ORIGINAL
+# device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
 # def load_model(bert_model_name, num_classes, batch_size, learning_rate, model_path, device):
 #     model = BERTClassifier(bert_model_name, num_classes, batch_size, learning_rate).to(device)
 #     model.load_state_dict(torch.load(model_path, map_location=device))
@@ -63,7 +64,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 # )
 
 ## ONNX
-model_path = "model.onnx"
+model_path = "review_classifier_model.onnx"
 session = ort.InferenceSession(
             model_path,
             providers=["CUDAExecutionProvider", "CPUExecutionProvider"],

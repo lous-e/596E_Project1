@@ -3,6 +3,7 @@ import onnxruntime as ort
 import json
 import numpy as np
 from config import *
+from transformers import BertTokenizer
 
 # Arguments
 parser = argparse.ArgumentParser()

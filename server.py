@@ -44,7 +44,7 @@ server.add_app_metadata(
     name="App Dangerousness Classifier",
     author="UMass Rescue",
     version="0.1.0",
-    info=load_file_as_string("README.md"),
+    info=load_file_as_string("README_Flask.md"),
 )
 
 # Load tokenizer and model
@@ -103,7 +103,7 @@ def predict(inputs: Inputs, parameters: Parameters) -> ResponseBody:
     for text_input in inputs['input_dataset'].texts:
         raw_text = text_input.text
         pred_class = predict_text_class(raw_text)
-        predicted_class = "Safe" if pred_class == 1 else "not-safe"
+        predicted_class = "safe" if pred_class == 1 else "not-safe"
         outputs.append(TextResponse(value=predicted_class, title=raw_text))
     return ResponseBody(root=BatchTextResponse(texts=outputs))
 

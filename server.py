@@ -90,7 +90,7 @@ def predict_text_class(text):
     # with torch.no_grad():
     #     import pdb; pdb.set_trace()
     #     # to get the onnx model
-    #     # torch.onnx.export(model, text, "model.onnx", export_params = True, opset_version = 16, do_constant_folding = True, input_names = ["input"], output_names = ["output"], dynamic_axes={'input' : {0 : 'batch_size'},'output' : {0 : 'batch_size'}})
+    #     # torch.onnx.export(model, text, "review_classifier_model.onnx", export_params = True, opset_version = 16, do_constant_folding = True, input_names = ["input"], output_names = ["output"], dynamic_axes={'input' : {0 : 'batch_size'},'output' : {0 : 'batch_size'}})
     #     outputs = model(input_ids=input_ids, attention_mask=attention_mask)
 
     # _, predicted_class = torch.max(outputs, dim=1)
